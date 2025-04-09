@@ -1,0 +1,62 @@
+body {
+    background-color: #151521 !important;
+}
+.clearance-form-wrapper {
+    background: #1E1E2D;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Card Styling */
+.clearance-card {
+    background: #1E1E2D;
+    border-radius: 12px;
+    border-left: 4px solid #4e73df;  /* Accent stripe */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Headers */
+.section-header {
+
+    color: #d1d1d8;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Input Groups */
+.input-group-custom .input-group-text {
+    background-color: #1E1E2D;
+    color: #4e73df;
+    border-right: none;
+}
+
+.input-group-custom .form-select {
+    background-color: #1E1E2D !important;
+    color: #f1f1f773;
+    border-left: none;
+}
+
+.buttons {
+    margin-top: 8rem;
+}
+
+.btn-cancel {
+    background-color: #585765;
+    color: #f6f6f7;
+
+}
+
+.btn-cancel:hover {
+    background-color: #47474d !important;   
+}
+
+.btn-submit {
+    background-color: #4e73df;
+    border: none;
+}
+
+.btn-submit:hover {
+    background-color: #3a5bc7;
+}
