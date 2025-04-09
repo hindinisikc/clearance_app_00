@@ -64,3 +64,123 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# 📝 Laravel Clearance Request System
+
+This Laravel application allows employees to request clearance through a structured form that includes department, employee, and designated supervisor relationships.
+
+---
+
+## 🚀 Features
+
+- Employees can submit clearance requests.
+- Dropdown automatically populates supervisors based on selected employee.
+- Admin-style layout using Bootstrap 5 for UI.
+- Seeded data for testing: departments, users, employees.
+
+---
+
+## 🛠️ Requirements
+
+- PHP >= 8.1
+- Composer
+- MySQL or compatible database
+- Node.js and npm (optional, for asset compilation)
+
+---
+
+## 🧪 Demo Credentials
+
+| Role       | Email                      | Password |
+|------------|----------------------------|----------|
+| Supervisor | supervisor1@example.com    | password |
+| Employee   | employee1@example.com      | password |
+
+*(if you're seeding test users)*
+
+---
+
+## ⚙️ Installation
+
+Follow these steps to get the app running locally:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/clearance-requests.git
+cd clearance-requests
+
+# 2. Install PHP dependencies
+composer install
+
+# 3. Copy .env file
+cp .env.example .env
+
+# 4. Generate application key
+php artisan key:generate
+
+# 5. Configure your .env database connection
+# (DB_DATABASE, DB_USERNAME, DB_PASSWORD)
+
+# 6. Run migrations and seeders
+php artisan migrate --seed
+
+# 7. Start the local server
+php artisan serve
+🗂️ Database Structure
+clearance_requests
+Column	Type
+clearance_request_id	INT (PK)
+user_id	Foreign Key (employee)
+supervisor_id	Foreign Key (supervisor)
+department_id	Foreign Key
+date_submitted	TIMESTAMP
+created_at	TIMESTAMP
+updated_at	TIMESTAMP
+departments
+Column	Type
+department_id	INT (PK)
+department	STRING
+employees
+Column	Type
+employee_id	INT (PK)
+user_id	Foreign Key
+supervisor_id	Foreign Key (user_id)
+users
+Column	Type
+id	INT (PK)
+name	STRING
+email	STRING
+password	STRING
+is_supervisor	BOOLEAN
+🧰 Tech Stack
+Laravel 10+
+
+MySQL
+
+Bootstrap 5
+
+Blade Templating Engine
+
+📦 Environment Variables
+Ensure the following are set in .env:
+
+env
+Copy
+Edit
+APP_NAME="Clearance Request"
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+📌 Notes
+Make sure .env is not committed to Git.
+
+Run php artisan migrate:fresh --seed if the database breaks during development.
+
+Supervisor dropdown is auto-updated using AJAX based on selected employee.
+
