@@ -38,25 +38,32 @@ body {
     border-left: none;
 }
 
+/* Replace the .buttons class with this: */
 .buttons {
-    margin-top: 8rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    margin-left: auto;  /* Pushes container to right */
+    max-width: calc(50% - 30px); /* Matches supervisor dropdown width */
 }
 
+/* Keep all other button styles the same */
 .btn-cancel {
     background-color: #585765;
     color: #f6f6f7;
-
-}
-
-.btn-cancel:hover {
-    background-color: #47474d !important;   
 }
 
 .btn-submit {
     background-color: #4e73df;
-    border: none;
 }
 
+.btn-cancel:hover {
+    background-color: #1c1c1f !important;
+    color: rgb(157, 156, 158) !important;
+}
+
+
+
 .btn-submit:hover {
-    background-color: #3a5bc7;
+    background-color: #82bcff;
+    color: rgb(245, 251, 255) !important;
 }

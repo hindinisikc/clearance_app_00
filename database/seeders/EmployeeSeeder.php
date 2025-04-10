@@ -24,18 +24,70 @@ class EmployeeSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+    private $firstNames = [
+        'John',
+        'Jane',
+        'Michael',
+        'Sarah',
+        'David',
+        'Emily',
+        'Chris',
+        'Jessica',
+        'Daniel',
+        'Laura',
+    ];
+
+
+    private $lastNames = [
+        'Smith',
+        'Johnson',
+        'Williams',
+        'Jones',
+        'Brown',
+        'Davis',
+        'Miller',
+        'Wilson',
+        'Moore',
+        'Taylor',
+    ];
+
+
+
     public function run(): void
     {
-        $supervisors = User::where('is_supervisor', true)->pluck('id')->toArray();
-        $employees = User::where('is_supervisor', false)->get();
+        $firstNames = ['James', 'Mary', 'Robert', 'Patricia', 'John', 'Jennifer'];
+        $lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia'];
 
-        foreach ($employees as $user) {
+        // Create supervisors first
+        foreach (range(1, 3) as $i) {
+            $firstName = $firstNames[array_rand($firstNames)];
+            $lastName = $lastNames[array_rand($lastNames)];
+
+            User::create([
+                'name' => "$firstName $lastName",
+                'email' => strtolower($firstName).'.'.strtolower($lastName).'@example.com',
+                'password' => bcrypt('password'),
+                'is_supervisor' => true
+            ]);
+        }
+
+        // Create regular employees
+        foreach (range(1, 10) as $i) {
+            $firstName = $firstNames[array_rand($firstNames)];
+            $lastName = $lastNames[array_rand($lastNames)];
+
+            $user = User::create([
+                'name' => "$firstName $lastName",
+                'email' => strtolower($firstName).'.'.strtolower($lastName).$i.'@example.com',
+                'password' => bcrypt('password'),
+                'is_supervisor' => false
+            ]);
+
             Employee::create([
                 'user_id' => $user->id,
-                'first_name' => explode(' ', $user->name)[0],
-                'last_name' => explode(' ', $user->name)[1] ?? 'Lastname',
-                // You can add supervisor_id here if you add it to employees table
-                'supervisor_id' => Arr::random($supervisors),
+                'first_name' => $firstName,
+                'last_name' => $lastName,
+                'supervisor_id' => User::where('is_supervisor', true)->inRandomOrder()->first()->id
             ]);
         }
     }

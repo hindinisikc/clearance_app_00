@@ -22,27 +22,45 @@ class UserSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        // Supervisors
-        for ($i = 1; $i <= 3; $i++) {
-            User::create([
-                'name' => "Supervisor $i",
-                'email' => "supervisor$i@example.com",
-                'password' => Hash::make('password'),
-                'is_supervisor' => true, // optional column if using
-            ]);
-        }
+    public function run()
+{
+    $supervisors = [
+        ['Robert', 'Johnson'],
+        ['Alex', 'Smith'],
+        ['David', 'Garcia']
+    ];
 
-        // Employees
-        for ($i = 1; $i <= 10; $i++) {
-            User::create([
-                'name' => "Employee $i",
-                'email' => "employee$i@example.com",
-                'password' => Hash::make('password'),
-                'is_supervisor' => false,
-            ]);
-        }
-
+    // Create proper supervisors
+    foreach ($supervisors as $supervisor) {
+        User::create([
+            'name' => "{$supervisor[0]} {$supervisor[1]}",
+            'email' => strtolower($supervisor[0][0]).strtolower($supervisor[1]).'@example.com',
+            'password' => Hash::make('password123'),
+            'is_supervisor' => true
+        ]);
     }
+
+    // Create employees
+    $employees = [
+        ['Mary', 'Williams'],
+        ['Michael', 'Brown'],
+        ['Sarah', 'Jones'],
+        ['Jessica', 'Davis'],
+        ['Daniel', 'Miller'],
+        ['Laura', 'Wilson'],
+        ['Emily', 'Moore'],
+        ['Chris', 'Taylor'],
+        ['James', 'Anderson'],
+        ['Patricia', 'Thomas']
+    ];
+
+    foreach ($employees as $employee) {
+        User::create([
+            'name' => "{$employee[0]} {$employee[1]}",
+            'email' => strtolower($employee[0][0]).strtolower($employee[1]).'@example.com',
+            'password' => Hash::make('password123'),
+            'is_supervisor' => false
+        ]);
+    }
+}
 }

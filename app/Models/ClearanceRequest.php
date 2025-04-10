@@ -21,6 +21,15 @@ Which department it belongs to.
 
 class ClearanceRequest extends Model
 {
+
+    protected $fillable = [
+        'user_id',
+        'supervisor_id',
+        'department_id',
+        'date_submitted'
+    ];
+
+
     public function employee() {
         return $this->belongsTo(User::class, 'user_id');
     }

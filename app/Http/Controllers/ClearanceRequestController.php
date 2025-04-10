@@ -27,13 +27,40 @@ class ClearanceRequestController extends Controller
 
 
 
-        public function create()
+    public function create()
     {
         $departments = Department::all();
-        $employees = Employee::all();
+
+        // Fetch employees with their user data
+        $employees = Employee::with('user')->get();
+
+        // Fetch supervisors
         $supervisors = User::where('is_supervisor', true)->get();
 
-        return view('clearance_form', compact('departments', 'employees', 'supervisors'));
+        // Combine employees and supervisors into a single collection
+        $allUsers = collect();
+
+        // Add employees to the collection
+        foreach ($employees as $employee) {
+            if ($employee->user) {
+                $allUsers->push([
+                    'id' => $employee->user->id,
+                    'name' => $employee->first_name . ' ' . $employee->last_name,
+                    'type' => 'employee',
+                ]);
+            }
+        }
+
+        // Add supervisors to the collection
+        foreach ($supervisors as $supervisor) {
+            $allUsers->push([
+                'id' => $supervisor->id,
+                'name' => $supervisor->name,
+                'type' => 'supervisor',
+            ]);
+        }
+
+        return view('clearance_form', compact('departments', 'allUsers', 'supervisors'));
     }
 
 
@@ -60,7 +87,7 @@ class ClearanceRequestController extends Controller
     //findOrFail() → Finds the employee or gives an error.
     //response()->json() → Sends data in a format that websites/apps can read.
 
-        public function getSupervisor($employeeId)
+    /*    public function getSupervisor($employeeId)
     {
         $employee = Employee::with('supervisor')->findOrFail($employeeId);
 
@@ -75,6 +102,8 @@ class ClearanceRequestController extends Controller
             ]
         ]);
     }
+
+    */
 }
 
 
@@ -101,3 +130,5 @@ The system shows him a list of departments & supervisors.
 He submits the form → His request is saved.
 
 Later, the system can fetch John’s supervisor if needed.
+
+*/
