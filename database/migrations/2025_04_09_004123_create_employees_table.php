@@ -6,6 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /*
+    This is a database migration that creates an employees table. Let me explain what it does in simple terms.
+    What This Code Does
+    Creates a new table called employees in your database
+    The table will store:
+    Employee IDs (auto-numbered)
+    User IDs (linked to the user table)
+    Employee first names
+    Employee last names
+    Automatic timestamps (when records are created/updated)
+    Supervisor IDs (linked to the user table)
+    Also provides a way to delete the table if needed
+    */
+
+
     /**
      * Run the migrations.
      */

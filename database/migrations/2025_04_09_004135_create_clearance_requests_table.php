@@ -6,6 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+    /*
+    This is a database migration that creates a clearance_requests table. Let me explain what it does in simple terms.
+    What This Code Does
+    Creates a new table called clearance_requests in your database
+    The table will store:
+    Clearance Request IDs (auto-numbered)
+    Supervisor IDs (linked to the user table)
+    Employee IDs (linked to the user table)
+    Dates when requests were submitted
+    Automatic timestamps (when records are created/updated)
+    Also provides a way to delete the table if needed
+    */
+
     /**
      * Run the migrations.
      */

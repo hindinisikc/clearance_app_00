@@ -7,8 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
+
 class User extends Authenticatable
 {
+
+    /*
+    This is the User model - it handles everything about user accounts in the system. Let me explain it in simple terms.
+
+    What This Code Does
+    Creates user accounts that can log in
+
+    Stores user information (name, email, password)
+
+    Handles security features (password protection, email verification)
+
+    Provides special features like notifications
+    /*
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 

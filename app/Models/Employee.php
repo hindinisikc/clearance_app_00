@@ -4,6 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+
+/*
+This is a PHP Model for an Employee System. It defines how an Employee connects to other parts of the system (like Users and Supervisors).
+It defines an Employee model (like a "data manager" for employees).
+It tells the system:
+Which user is the employee.
+Which supervisor manages the employee.
+*/
+
 class Employee extends Model
 {
     protected $primaryKey = 'employee_id';

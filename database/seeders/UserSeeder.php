@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
+
+    /*
+    This is a PHP Seeder for the User model. It fills the database with initial user data.
+
+    What This Code Does
+    Creates a list of users (like "John Doe", "Jane Smith")
+    Fills the database with these users
+    Assigns roles to users (like "admin", "employee")
+    */
+
     /**
      * Run the database seeds.
      */

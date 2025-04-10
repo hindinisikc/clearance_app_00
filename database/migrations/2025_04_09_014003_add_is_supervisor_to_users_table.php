@@ -6,6 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+    /*
+    This is a database migration that adds an is_supervisor column to the users table. Let me explain what it does in simple terms.
+    What This Code Does
+    Adds a new column called is_supervisor to the users table
+    The column will store true or false values (0 or 1)
+    This column indicates whether a user is a supervisor or not
+    The default value is false (0)
+    Also provides a way to remove the column if needed
+    */
+
+
+
     /**
      * Run the migrations.
      */

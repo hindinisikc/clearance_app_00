@@ -12,6 +12,15 @@ use Illuminate\Support\Arr;
 
 class EmployeeSeeder extends Seeder
 {
+
+    /*
+    This is a PHP Seeder for the Employee model. It fills the database with initial employee data. Let me explain it in simple terms.
+    What This Code Does
+    Creates a list of employees (like "John Doe", "Jane Smith")
+    Fills the database with these employees
+    Assigns each employee to a supervisor (like "Manager A", "Manager B")
+    */
+
     /**
      * Run the database seeds.
      */
