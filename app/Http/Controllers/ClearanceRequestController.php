@@ -69,13 +69,21 @@ class ClearanceRequestController extends Controller
     //now() → Records the current date/time.
     //After saving, it redirects back to home with a success message.
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
+        $request->validate([
+            'employee_id' => 'required|exists:employees,employee_id',
+            'supervisor_id' => 'required|exists:users,id',
+            'department_id' => 'required|exists:departments,department_id',
+        ]);
+
         ClearanceRequest::create([
-            'user_id' => $request->user_id,
+            'employee_id' => $request->employee_id,
             'supervisor_id' => $request->supervisor_id,
             'department_id' => $request->department_id,
             'date_submitted' => now(),
         ]);
+
         return redirect('/')->with('success', 'Clearance request submitted!');
     }
 

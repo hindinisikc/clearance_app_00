@@ -23,7 +23,7 @@ class ClearanceRequest extends Model
 {
 
     protected $fillable = [
-        'user_id',
+        'employee_id',
         'supervisor_id',
         'department_id',
         'date_submitted'
@@ -31,7 +31,7 @@ class ClearanceRequest extends Model
 
 
     public function employee() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'employee_id');
     }
 
     public function supervisor() {
