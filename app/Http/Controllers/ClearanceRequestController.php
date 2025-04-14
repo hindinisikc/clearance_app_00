@@ -84,7 +84,7 @@ class ClearanceRequestController extends Controller
             'date_submitted' => now(),
         ]);
 
-        return redirect('/')->with('success', 'Clearance request submitted!');
+        return redirect('/clearance-request')->with('success', 'Clearance request submitted!');
     }
 
     //What it does:
