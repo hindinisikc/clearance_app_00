@@ -71,9 +71,51 @@
         </form>
     </div>
 
+
+
     <!-- Bootstrap JS (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jQuery for AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+    {{-- filepath: c:\Users\OJT\SoftDev\clearance_requests\resources\views\clearance_form.blade.php --}}
+    @extends('layouts.app')
+
+    @section('content')
+    <div class="container">
+        {{-- Existing form code --}}
+        <form>
+            {{-- Form fields for clearance request --}}
+        </form>
+
+        {{-- Clearance Requests Table --}}
+        <h3 class="mt-5 clearance-h3" >Clearance Requests</h3>
+        <table class="table table-bordered clearance-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Employee</th>
+                    <th>Supervisor</th>
+                    <th>Department</th>
+                    <th>Date Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($clearanceRequests as $request)
+                    <tr>
+                        <td>{{ $request->clearance_request_id }}</td>
+                        <td>{{ $request->employee->name ?? 'N/A' }}</td>
+                        <td>{{ $request->supervisor->name ?? 'N/A' }}</td>
+                        <td>{{ $request->department->department ?? 'N/A' }}</td>
+                        <td>{{ $request->date_submitted }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    @endsection
+
 </body>
 </html>

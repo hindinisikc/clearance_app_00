@@ -48,12 +48,12 @@ body {
 
 /* Keep all other button styles the same */
 .btn-cancel {
-    background-color: #585765;
-    color: #f6f6f7;
+    background-color: #585765 !important;
+    color: #f6f6f7 !important;
 }
 
 .btn-submit {
-    background-color: #4e73df;
+    background-color: #4e73df !important;
 }
 
 .btn-cancel:hover {
@@ -64,6 +64,53 @@ body {
 
 
 .btn-submit:hover {
-    background-color: #82bcff;
+    background-color: #82bcff !important;
     color: rgb(245, 251, 255) !important;
+}
+
+/* Clearance Table Styling */
+.clearance-table {
+    background: #1E1E2D !important; /* Match the card background */
+    border-radius: 12px !important; /* Rounded corners */
+    border: 4px solid #4e73df !important; /* Accent stripe */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
+    color: #d1d1d8 !important; /* Text color */
+    overflow: hidden !important; /* Prevents overflow on rounded corners */
+}
+
+.clearance-h3 {
+    color: #d1d1d8 !important; /* Match card text color */
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+}
+
+.clearance-table th {
+    background-color: #1E1E2D !important; /* Match card background */
+    color: #4e73df !important; /* Accent color for header text */
+    font-weight: bold !important;
+    text-align: center !important;
+    font-size: 18px !important; /* Larger font size for header */
+    border-bottom: 2px solid #4e73df !important; /* Accent border for header */
+}
+
+.clearance-table td {
+    background-color: #1E1E2D !important; /* Match card background */
+    color: #d1d1d8 !important; /* Match card text color */
+    text-align: center !important;
+    vertical-align: middle !important;
+    border-top: 1px solid #2A2A3C !important; /* Subtle border between rows */
+}
+
+.clearance-table tr:nth-child(even) td {
+
+}
+
+.clearance-table tr:hover td {
+    background-color: #4e73df !important; /* Highlight row on hover */
+    color: #ffffff !important; /* Highlighted text color */
+}
+
+.clearance-table th, .clearance-table td {
+    padding: 12px !important; /* Add padding for better spacing */
+    border: none !important; /* Remove default borders */
 }

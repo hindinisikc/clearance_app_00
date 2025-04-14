@@ -60,7 +60,13 @@ class ClearanceRequestController extends Controller
             ]);
         }
 
-        return view('clearance_form', compact('departments', 'allUsers', 'supervisors'));
+
+
+         // Fetch clearance requests
+        $clearanceRequests = ClearanceRequest::with(['employee', 'supervisor', 'department'])->get();
+
+        return view('clearance_form', compact('departments', 'allUsers', 'supervisors', 'clearanceRequests'));
+
     }
 
 
