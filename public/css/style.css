@@ -11,32 +11,71 @@ body {
 .clearance-card {
     background: #1E1E2D;
     border-radius: 12px;
-    border-left: 4px solid #4e73df;  /* Accent stripe */
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    border-left: 4px solid #4e73df; /* Accent stripe */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 0 auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation for hover effects */
 }
 
+.clearance-card:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
 /* Headers */
 .section-header {
 
-    color: #d1d1d8;
+    color: #d1d1d8 ;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
 /* Input Groups */
-.input-group-custom .input-group-text {
-    background-color: #1E1E2D;
-    color: #4e73df;
-    border-right: none;
+/* Input Group Styling */
+.input-group-custom {
+    display: flex;
+    align-items: center;
 }
 
-.input-group-custom .form-select {
-    background-color: #1E1E2D !important;
-    color: #f1f1f773;
-    border-left: none;
+/* Icon (input-group-text) Styling */
+.input-group-custom .input-group-text {
+    background-color: #1E1E2D !important; /* Match the card background */
+    color: #4e73df !important; /* Accent color */
+    border: 1px solid #4e73df !important; /* Match the border with form-select */
+    border-right: none !important; /* Remove right border to merge with form-select */
+    border-radius: 8px 0 0 8px !important; /* Rounded corners for the left side */
+    height: 100% !important; /* Ensure it matches the height of the form-select */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+/* Dropdown (form-select) Styling */
+.input-group-custom .form-select {
+    background-color: #1E1E2D !important; /* Match the card background */
+    color: #d1d1d8 !important; /* Match card text color */
+    border: 1px solid #4e73df !important; /* Match the border with input-group-text */
+    border-radius: 0 8px 8px 0 !important; /* Rounded corners for the right side */
+    height: 100% !important; /* Ensure it matches the height of the input-group-text */
+    transition: all 0.3s ease-in-out !important; /* Smooth transition for hover and focus */
+}
+
+/* Hover Effect for Dropdown */
+.input-group-custom .form-select:hover {
+    background-color: #2A2A3C !important; /* Slightly darker background on hover */
+    color: #ffffff !important; /* Highlighted text color */
+    border-color: #82bcff !important; /* Lighter accent border */
+}
+
+/* Focus Effect for Dropdown */
+.input-group-custom .form-select:focus {
+    background-color: #2A2A3C !important; /* Slightly darker background on focus */
+    color: #ffffff !important; /* Highlighted text color */
+    border-color: #82bcff !important; /* Lighter accent border */
+    box-shadow: 0 0 8px rgba(130, 188, 255, 0.5) !important; /* Glow effect */
+    outline: none !important; /* Remove default outline */
+}
+
 
 /* Replace the .buttons class with this: */
 .buttons {
@@ -76,6 +115,7 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
     color: #d1d1d8 !important; /* Text color */
     overflow: hidden !important; /* Prevents overflow on rounded corners */
+    transition: all 0.3s ease-in-out !important; /* Smooth transition for table */
 }
 
 .clearance-h3 {
@@ -91,6 +131,7 @@ body {
     text-align: center !important;
     font-size: 18px !important; /* Larger font size for header */
     border-bottom: 2px solid #4e73df !important; /* Accent border for header */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth header hover */
 }
 
 .clearance-table td {
@@ -99,15 +140,17 @@ body {
     text-align: center !important;
     vertical-align: middle !important;
     border-top: 1px solid #2A2A3C !important; /* Subtle border between rows */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth cell hover */
 }
 
 .clearance-table tr:nth-child(even) td {
-
+    transition: background-color 0.3s ease-in-out !important; /* Smooth transition for alternate rows */
 }
 
 .clearance-table tr:hover td {
     background-color: #4e73df !important; /* Highlight row on hover */
     color: #ffffff !important; /* Highlighted text color */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth hover effect */
 }
 
 .clearance-table th, .clearance-table td {
