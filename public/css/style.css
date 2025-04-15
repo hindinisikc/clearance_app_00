@@ -1,159 +1,240 @@
-body {
-    background-color: #151521 !important;
-}
-.clearance-form-wrapper {
-    background: #1E1E2D;
-    min-height: 100vh;
-    padding: 2rem;
+/* ============================
+   Default Dark Mode Styles
+   ============================ */
+body[data-theme="dark"] {
+    background-color: #151521 !important; /* Dark background for the entire page */
+    color: #d1d1d8 !important; /* Light text color for readability */
 }
 
-/* Card Styling */
+body[data-theme="dark"] .clearance-form-wrapper {
+    background: #1E1E2D !important; /* Dark background for the form wrapper */
+}
+
+body[data-theme="dark"] .clearance-card {
+    background: #1E1E2D !important; /* Dark background for the card */
+    border-left: 4px solid #4e73df !important; /* Accent stripe on the left */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+}
+
+body[data-theme="dark"] .clearance-table {
+    background: #1E1E2D !important; /* Dark background for the table */
+    color: #d1d1d8 !important; /* Light text color */
+    border: 4px solid #4e73df !important; /* Accent border for the table */
+}
+
+body[data-theme="dark"] .clearance-table th {
+    background-color: #1E1E2D !important; /* Match table background */
+    color: #4e73df !important; /* Accent color for table headers */
+}
+
+body[data-theme="dark"] .clearance-table td {
+    background-color: #1E1E2D !important; /* Match table background */
+    color: #d1d1d8 !important; /* Light text color for table cells */
+}
+
+body[data-theme="dark"] .section-header {
+    color: #d1d1d8 !important; /* Light text color for section headers */
+}
+
+body[data-theme="dark"] .form-select {
+    background-color: #1E1E2D !important; /* Dark background for dropdowns */
+    color: #d1d1d8 !important; /* Light text color for dropdowns */
+    border: 1px solid #4e73df !important; /* Accent border for dropdowns */
+}
+
+body[data-theme="dark"] .form-select:focus {
+    background-color: #2A2A3C !important; /* Slightly darker background on focus */
+    color: #ffffff !important; /* Highlighted text color */
+    border-color: #82bcff !important; /* Lighter accent border on focus */
+    box-shadow: 0 0 8px rgba(130, 188, 255, 0.5) !important; /* Glow effect */
+}
+
+body[data-theme="dark"] .clearance-h3 {
+    color: #d1d1d8 !important; /* Light text color for H3 headers */
+}
+
+body[data-theme="dark"] .input-group-text {
+    background-color: #1E1E2D !important; /* Match dark mode background */
+    color: #4e73df !important; /* Accent color for icons */
+    border: 1px solid #4e73df !important; /* Match border with dropdowns */
+}
+
+/* ============================
+   Light Mode Styles
+   ============================ */
+body[data-theme="light"] {
+    background-color: #f8f9fa !important; /* Light background for the entire page */
+    color: #212529 !important; /* Dark text color for readability */
+}
+
+body[data-theme="light"] .clearance-form-wrapper {
+    background: #ffffff !important; /* Light background for the form wrapper */
+}
+
+body[data-theme="light"] .clearance-card {
+    background: #ffffff !important; /* Light background for the card */
+    border-left: 4px solid #007bff !important; /* Accent stripe on the left */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow for depth */
+}
+
+body[data-theme="light"] .clearance-table {
+    background: #ffffff !important; /* Light background for the table */
+    color: #212529 !important; /* Dark text color */
+    border: 4px solid #007bff !important; /* Accent border for the table */
+}
+
+body[data-theme="light"] .clearance-table th {
+    background-color: #ffffff !important; /* Match table background */
+    color: #007bff !important; /* Accent color for table headers */
+}
+
+body[data-theme="light"] .clearance-table td {
+    background-color: #ffffff !important; /* Match table background */
+    color: #212529 !important; /* Dark text color for table cells */
+}
+
+body[data-theme="light"] .section-header {
+    color: #212529 !important; /* Dark text color for section headers */
+}
+
+body[data-theme="light"] .form-select {
+    background-color: #ffffff !important; /* Light background for dropdowns */
+    color: #212529 !important; /* Dark text color for dropdowns */
+    border: 1px solid #007bff !important; /* Accent border for dropdowns */
+}
+
+body[data-theme="light"] .form-select:focus {
+    background-color: #e9ecef !important; /* Slightly lighter background on focus */
+    color: #212529 !important; /* Highlighted text color */
+    border-color: #66b2ff !important; /* Lighter accent border on focus */
+    box-shadow: 0 0 8px rgba(102, 178, 255, 0.5) !important; /* Glow effect */
+}
+
+body[data-theme="light"] .clearance-h3 {
+    color: #212529 !important; /* Dark text color for H3 headers */
+}
+
+body[data-theme="light"] .input-group-text {
+    background-color: #ffffff !important; /* Match light mode background */
+    color: #007bff !important; /* Accent color for icons */
+    border: 1px solid #007bff !important; /* Match border with dropdowns */
+}
+
+/* ============================
+   Theme Toggle Button
+   ============================ */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #4e73df !important; /* Default icon color */
+    font-size: 1.5rem; /* Icon size */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.btn-icon:hover {
+    color: #82bcff !important; /* Lighter accent color on hover */
+}
+
+/* ============================
+   Clearance Form Wrapper
+   ============================ */
+.clearance-form-wrapper {
+    min-height: 100vh; /* Full height for the page */
+    padding: 2rem; /* Add spacing around the form */
+}
+
+/* ============================
+   Card Styling
+   ============================ */
 .clearance-card {
-    background: #1E1E2D;
-    border-radius: 12px;
-    border-left: 4px solid #4e73df; /* Accent stripe */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth animation for hover effects */
+    border-radius: 12px; /* Rounded corners */
+    max-width: 800px; /* Limit card width */
+    margin: 0 auto; /* Center the card */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
 }
 
 .clearance-card:hover {
     transform: translateY(-10px); /* Slight lift effect */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-/* Headers */
-.section-header {
 
-    color: #d1d1d8 ;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-/* Input Groups */
-/* Input Group Styling */
+/* ============================
+   Input Groups
+   ============================ */
 .input-group-custom {
     display: flex;
-    align-items: center;
+    align-items: center; /* Align items vertically */
 }
 
-/* Icon (input-group-text) Styling */
 .input-group-custom .input-group-text {
-    background-color: #1E1E2D !important; /* Match the card background */
-    color: #4e73df !important; /* Accent color */
-    border: 1px solid #4e73df !important; /* Match the border with form-select */
-    border-right: none !important; /* Remove right border to merge with form-select */
+    border-right: none !important; /* Remove right border to merge with dropdown */
     border-radius: 8px 0 0 8px !important; /* Rounded corners for the left side */
-    height: 100% !important; /* Ensure it matches the height of the form-select */
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Dropdown (form-select) Styling */
 .input-group-custom .form-select {
-    background-color: #1E1E2D !important; /* Match the card background */
-    color: #d1d1d8 !important; /* Match card text color */
-    border: 1px solid #4e73df !important; /* Match the border with input-group-text */
     border-radius: 0 8px 8px 0 !important; /* Rounded corners for the right side */
-    height: 100% !important; /* Ensure it matches the height of the input-group-text */
-    transition: all 0.3s ease-in-out !important; /* Smooth transition for hover and focus */
+    transition: all 0.3s ease-in-out !important; /* Smooth hover and focus effects */
 }
 
-/* Hover Effect for Dropdown */
-.input-group-custom .form-select:hover {
-    background-color: #2A2A3C !important; /* Slightly darker background on hover */
-    color: #ffffff !important; /* Highlighted text color */
-    border-color: #82bcff !important; /* Lighter accent border */
-}
-
-/* Focus Effect for Dropdown */
-.input-group-custom .form-select:focus {
-    background-color: #2A2A3C !important; /* Slightly darker background on focus */
-    color: #ffffff !important; /* Highlighted text color */
-    border-color: #82bcff !important; /* Lighter accent border */
-    box-shadow: 0 0 8px rgba(130, 188, 255, 0.5) !important; /* Glow effect */
-    outline: none !important; /* Remove default outline */
-}
-
-
-/* Replace the .buttons class with this: */
+/* ============================
+   Buttons
+   ============================ */
 .buttons {
     margin-top: 1rem;
     padding-top: 1rem;
-    margin-left: auto;  /* Pushes container to right */
-    max-width: calc(50% - 30px); /* Matches supervisor dropdown width */
+    margin-left: auto; /* Push buttons to the right */
 }
 
-/* Keep all other button styles the same */
 .btn-cancel {
-    background-color: #585765 !important;
-    color: #f6f6f7 !important;
+    background-color: #585765 !important; /* Default cancel button color */
+    color: #f6f6f7 !important; /* Light text color */
 }
 
 .btn-submit {
-    background-color: #4e73df !important;
+    background-color: #4e73df !important; /* Default submit button color */
 }
 
 .btn-cancel:hover {
-    background-color: #1c1c1f !important;
-    color: rgb(157, 156, 158) !important;
+    background-color: #1c1c1f !important; /* Darker background on hover */
+    color: rgb(157, 156, 158) !important; /* Muted text color on hover */
 }
-
-
 
 .btn-submit:hover {
-    background-color: #82bcff !important;
-    color: rgb(245, 251, 255) !important;
+    background-color: #82bcff !important; /* Lighter background on hover */
+    color: rgb(245, 251, 255) !important; /* Light text color on hover */
 }
 
-/* Clearance Table Styling */
+/* ============================
+   Clearance Table Styling
+   ============================ */
 .clearance-table {
-    background: #1E1E2D !important; /* Match the card background */
     border-radius: 12px !important; /* Rounded corners */
-    border: 4px solid #4e73df !important; /* Accent stripe */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important; /* Subtle shadow */
-    color: #d1d1d8 !important; /* Text color */
-    overflow: hidden !important; /* Prevents overflow on rounded corners */
-    transition: all 0.3s ease-in-out !important; /* Smooth transition for table */
-}
-
-.clearance-h3 {
-    color: #d1d1d8 !important; /* Match card text color */
-    font-weight: 600 !important;
-    margin-bottom: 1rem !important;
+    overflow: hidden !important; /* Prevent overflow on rounded corners */
+    transition: all 0.3s ease-in-out !important; /* Smooth hover effects */
 }
 
 .clearance-table th {
-    background-color: #1E1E2D !important; /* Match card background */
-    color: #4e73df !important; /* Accent color for header text */
-    font-weight: bold !important;
-    text-align: center !important;
-    font-size: 18px !important; /* Larger font size for header */
-    border-bottom: 2px solid #4e73df !important; /* Accent border for header */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth header hover */
+    font-weight: bold !important; /* Bold text for headers */
+    text-align: center !important; /* Center-align header text */
+    font-size: 18px !important; /* Larger font size for headers */
+    border-bottom: 2px solid #4e73df !important; /* Accent border for headers */
 }
 
 .clearance-table td {
-    background-color: #1E1E2D !important; /* Match card background */
-    color: #d1d1d8 !important; /* Match card text color */
-    text-align: center !important;
-    vertical-align: middle !important;
+    text-align: center !important; /* Center-align cell text */
+    vertical-align: middle !important; /* Vertically center-align cell text */
     border-top: 1px solid #2A2A3C !important; /* Subtle border between rows */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth cell hover */
-}
-
-.clearance-table tr:nth-child(even) td {
-    transition: background-color 0.3s ease-in-out !important; /* Smooth transition for alternate rows */
 }
 
 .clearance-table tr:hover td {
     background-color: #4e73df !important; /* Highlight row on hover */
     color: #ffffff !important; /* Highlighted text color */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth hover effect */
-}
-
-.clearance-table th, .clearance-table td {
-    padding: 12px !important; /* Add padding for better spacing */
-    border: none !important; /* Remove default borders */
 }
