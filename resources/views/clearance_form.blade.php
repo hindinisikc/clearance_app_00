@@ -11,6 +11,14 @@
 </head>
 
 <body class="clearance-form-wrapper">
+
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" class="btn btn-icon">
+            <i id="theme-icon" class="bi bi-moon-fill"></i>
+        </button>
+    </div>
+
+
     <div class="clearance-card p-4">
         <form action="{{ url('/clearance-request') }}" method="POST">
             @csrf
@@ -73,8 +81,12 @@
 
     <!-- Bootstrap JS (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include the theme toggle JavaScript -->
+    <script src="{{ asset('js/theme-toggle.js') }}"></script>
     <!-- jQuery for AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 
 
 
