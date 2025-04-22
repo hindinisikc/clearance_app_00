@@ -62,6 +62,7 @@ class ClearanceRequestController extends Controller
 
 
 
+
          // Fetch clearance requests
         $clearanceRequests = ClearanceRequest::with(['employee', 'supervisor', 'department'])->get();
 
@@ -77,8 +78,9 @@ class ClearanceRequestController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
-            'employee_id' => 'required|exists:employees,employee_id',
+            'employee_id' => 'required|exists:employees,user_id',
             'supervisor_id' => 'required|exists:users,id',
             'department_id' => 'required|exists:departments,department_id',
         ]);
@@ -90,6 +92,9 @@ class ClearanceRequestController extends Controller
             'date_submitted' => now(),
         ]);
 
+        if ($request->ajax()) {
+            return response()->json(['success' => true]);
+        }
         return redirect('/clearance-request')->with('success', 'Clearance request submitted!');
     }
 

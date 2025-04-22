@@ -63,7 +63,7 @@ body[data-theme="dark"] .input-group-text {
    Light Mode Styles
    ============================ */
 body[data-theme="light"] {
-    background-color: #f8f9fa !important; /* Light background for the entire page */
+    background-color: #eae9ee !important; /* Light background for the entire page */
     color: #212529 !important; /* Dark text color for readability */
 }
 
@@ -137,10 +137,12 @@ body[data-theme="light"] .input-group-text {
     font-size: 1.5rem; /* Icon size */
     cursor: pointer;
     transition: color 0.3s ease-in-out; /* Smooth hover effect */
+
 }
 
 .btn-icon:hover {
     color: #82bcff !important; /* Lighter accent color on hover */
+    box-shadow: rgb(103, 181, 255) 0px 0px 10px 0px !important; /* Shadow effect on hover */
 }
 
 /* ============================
@@ -159,11 +161,12 @@ body[data-theme="light"] .input-group-text {
     max-width: 800px; /* Limit card width */
     margin: 0 auto; /* Center the card */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
+
 }
 
 .clearance-card:hover {
     transform: translateY(-10px); /* Slight lift effect */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    box-shadow: 0 8px 24px rgb(0, 0, 0, 0.5); /* Enhanced shadow on hover */
 }
 
 /* ============================
@@ -210,6 +213,7 @@ body[data-theme="light"] .input-group-text {
 .btn-submit:hover {
     background-color: #82bcff !important; /* Lighter background on hover */
     color: rgb(245, 251, 255) !important; /* Light text color on hover */
+    box-shadow: rgb(103, 181, 255) 0px 0px 10px 0px !important; /* Shadow effect on hover */
 }
 
 /* ============================

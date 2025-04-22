@@ -20,7 +20,7 @@
 
 
     <div class="clearance-card p-4">
-        <form action="{{ url('/clearance-request') }}" method="POST">
+        <form id="clearance-form" action="{{ url('/clearance-request') }}" method="POST">
             @csrf
             <div class="row">
                 <!-- Left Column -->
@@ -43,9 +43,6 @@
                             @foreach($allUsers as $user)
                                 <option value="{{ $user['id'] }}">
                                     {{ $user['name'] }}
-                                    @if($user['type'] === 'supervisor')
-                                        (Supervisor)
-                                    @endif
                                 </option>
                             @endforeach
                         </select>
@@ -87,6 +84,7 @@
     <script src="{{ asset('js/theme-toggle.js') }}"></script>
     <!-- jQuery for AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 
 
 
