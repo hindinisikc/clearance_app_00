@@ -77,6 +77,7 @@ class ClearanceRequestController extends Controller
 
     public function store(Request $request)
     {
+
         $request->validate([
             'employee_id' => 'required|exists:employees,employee_id',
             'supervisor_id' => 'required|exists:users,id',
@@ -89,6 +90,7 @@ class ClearanceRequestController extends Controller
             'department_id' => $request->department_id,
             'date_submitted' => now(),
         ]);
+
 
         return redirect('/clearance-request')->with('success', 'Clearance request submitted!');
     }

@@ -35,9 +35,7 @@
                             @foreach($allUsers as $user)
                                 <option value="{{ $user['id'] }}">
                                     {{ $user['name'] }}
-                                    @if($user['type'] === 'supervisor')
-                                        (Supervisor)
-                                    @endif
+
                                 </option>
                             @endforeach
                         </select>
