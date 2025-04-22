@@ -95,6 +95,7 @@ class ClearanceRequestController extends Controller
         if ($request->ajax()) {
             return response()->json(['success' => true]);
         }
+
         return redirect('/clearance-request')->with('success', 'Clearance request submitted!');
     }
 
