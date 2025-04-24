@@ -18,6 +18,10 @@
         </button>
     </div>
 
+    {{-- filepath: c:\Users\OJT\SoftDev\clearance_requests\resources\views\clearance_form.blade.php --}}
+    @extends('layouts.app')
+
+    @section('content')
 
     <div class="clearance-card p-4">
         <form id="clearance-form" action="{{ url('/clearance-request') }}" method="POST">
@@ -57,9 +61,14 @@
                         <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
                         <select name="supervisor_id" class="form-select">
                             <option disabled selected>Supervisor</option>
-                            @foreach($supervisors as $supervisor)
-                                <option value="{{ $supervisor->id }}">
-                                    {{ $supervisor->name }}
+                            @foreach($allUsers as $user)
+                                <option value="{{ $user['id'] }}">
+                                    {{ $user['name'] }}
+                                    @if($user['type'] === 'supervisor')
+
+                                    @else
+
+                                    @endif
                                 </option>
                             @endforeach
                         </select>
@@ -75,32 +84,6 @@
                 </div>
             </div>
         </form>
-    </div>
-
-
-
-    <!-- Bootstrap JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Include the theme toggle JavaScript -->
-    <script src="{{ asset('js/theme-toggle.js') }}"></script>
-    <!-- jQuery for AJAX -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
-
-
-
-
-
-    {{-- filepath: c:\Users\OJT\SoftDev\clearance_requests\resources\views\clearance_form.blade.php --}}
-    @extends('layouts.app')
-
-    @section('content')
-    <div class="container">
-        {{-- Existing form code --}}
-        <form>
-            {{-- Form fields for clearance request --}}
-        </form>
-
         {{-- Clearance Requests Table --}}
         <h3 class="mt-5 clearance-h3" >Clearance Requests</h3>
         <table class="table table-bordered clearance-table">
@@ -125,7 +108,47 @@
                 @endforeach
             </tbody>
         </table>
+
     </div>
+
+
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include the theme toggle JavaScript -->
+    <script src="{{ asset('js/theme-toggle.js') }}"></script>
+    <!-- jQuery for AJAX -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const clearanceRequestUrl = "{{ url('/clearance-request') }}";
+    </script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
+    <script>
+        function storeClearanceRequest(request) {
+            request.validate({
+                employee_id: 'required|exists:employees,user_id',
+                supervisor_id: 'required|exists:users,id',
+                department_id: 'required|exists:departments,department_id',
+            });
+
+            const clearanceRequest = ClearanceRequest.create({
+                employee_id: request.employee_id,
+                supervisor_id: request.supervisor_id,
+                department_id: request.department_id,
+                date_submitted: new Date().toISOString(),
+            });
+
+            clearanceRequest.load(['employee', 'supervisor', 'department']);
+            clearanceRequest.date_submitted = new Date(clearanceRequest.date_submitted).toLocaleString();
+
+            return {
+                success: true,
+                newRequest: clearanceRequest,
+            };
+        }
+    </script>
+
     @endsection
 
 </body>

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supervisor_id');
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('department_id'); // Add this line
-            $table->date('date_submitted');
+            $table->timestamp('date_submitted')->nullable()->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }

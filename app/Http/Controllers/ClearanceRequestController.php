@@ -60,14 +60,10 @@ class ClearanceRequestController extends Controller
             ]);
         }
 
-
-
-
-         // Fetch clearance requests
+        // Fetch clearance requests
         $clearanceRequests = ClearanceRequest::with(['employee', 'supervisor', 'department'])->get();
 
-        return view('clearance_form', compact('departments', 'allUsers', 'supervisors', 'clearanceRequests'));
-
+        return view('clearance_form', compact('departments', 'allUsers', 'clearanceRequests'));
     }
 
 
@@ -78,26 +74,33 @@ class ClearanceRequestController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
             'employee_id' => 'required|exists:employees,user_id',
-            'supervisor_id' => 'required|exists:users,id',
+            'supervisor_id' => 'required|exists:users,id', // No change needed here
             'department_id' => 'required|exists:departments,department_id',
         ]);
 
-        ClearanceRequest::create([
+        // Create the clearance request
+        $clearanceRequest = ClearanceRequest::create([
             'employee_id' => $request->employee_id,
             'supervisor_id' => $request->supervisor_id,
             'department_id' => $request->department_id,
             'date_submitted' => now(),
         ]);
 
-        if ($request->ajax()) {
-            return response()->json(['success' => true]);
-        }
+        // Load relationships for the response
+        $clearanceRequest->load(['employee', 'supervisor', 'department']);
 
-        return redirect('/clearance-request')->with('success', 'Clearance request submitted!');
+        // Format the date_submitted field
+        $clearanceRequest->date_submitted = $clearanceRequest->date_submitted->format('F j, Y g:i A');
+
+        // Return the new clearance request as JSON
+        return response()->json([
+            'success' => true,
+            'newRequest' => $clearanceRequest,
+        ]);
     }
+
 
     //What it does:
     //Takes an employeeId and finds their supervisor.
